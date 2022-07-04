@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); 
 const createError = require('http-errors')
 const cors = require("cors");
+const UserRoute = require('./Routes/user')
 
 // connect db to node.js using link from database access and writing password 
-mongoose.connect('mongodb+srv://SaharMirza:Strawberry2@eatery.mwwmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Sayabidevs:sayabidevs123@sayabidevs.pivuxwc.mongodb.net/?retryWrites=true&w=majority')
 
 // to check if connection established or not 
 mongoose.connection.on('error',err=>{
@@ -16,13 +17,13 @@ mongoose.connection.on('connected',connected=>{
     console.log('connected with db sucessfully....'); // if connected to db
 })
 
-
 //initalize app
 const app = express()
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json()); //data recieved should be in JSON
 
+app.use('/user', UserRoute)
 
 //catch wrong route 
 app.use(async (req,res,next) => {
