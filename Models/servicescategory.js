@@ -8,11 +8,7 @@ const CategorySchema = new Schema({
         required: true,
         unique: true
     },
-    Cat_ID: {
-        type: Number,
-        required: true,
-        unique: true
-    }
+    
 })
 
 module.exports = mongoose.model('Category', CategorySchema);
