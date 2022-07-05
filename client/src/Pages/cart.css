@@ -1,0 +1,52 @@
+#details {
+    width: 68%;
+
+}
+
+#detail {
+    width: 15%;
+}
+
+.card {
+    width: 20%;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+
+.mb-3 {
+    margin-top: 3%;
+    margin-left: 2.5%;
+}
+
+.card-title {
+    border-bottom: 2px solid #000;
+}
+
+.card-text {
+    border-top: 2px solid #000;
+    padding-top: 5%;
+    margin-top: 25%;
+}
+
+.price {
+    margin-left: 37%;
+}
+
+.subprice {
+    margin-left: 35%;
+}
+
+#order {
+    margin-top: 5%;
+    width: 100%;
+}
+
+.form-label {
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+.card-header {
+    font-weight: bold;
+}

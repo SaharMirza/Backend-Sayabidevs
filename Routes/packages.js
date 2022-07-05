@@ -47,4 +47,19 @@ router.get('/', (req, res, next) => {
         })
 });
 
+// can get Fooditem by their fooditem id 
+router.get('/:id', (req, res, next) => {
+    packages.findById(req.params.id)
+        .then(result => {
+            res.status(200).json({
+                package: result
+            })
+        })
+        .catch(err => {            
+            res.status(500).json({
+                error: err
+            })
+        })
+})
+
 module.exports = router

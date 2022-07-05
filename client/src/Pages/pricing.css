@@ -1,0 +1,21 @@
+.center {
+    margin-top: 3%;
+    display: block;
+    margin-left: 45%;    
+}
+
+.center1 {
+    display: block;
+    margin-left: 25%;
+    width: 50%;
+    text-align: center;
+}
+
+#cardstyle{
+    height: 25em ; 
+    width:20em
+}
+
+#dollar{
+    font-size: 35px;
+}

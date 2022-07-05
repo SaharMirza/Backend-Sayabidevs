@@ -1,10 +1,12 @@
 import React from 'react';
-import './order.css';
-import { getPackages } from '../Apicalls/orders';
+import './pricing.css';
+import { getPackages } from '../Apicalls/packages';
+import { Navigate } from 'react-router-dom';
 
-const Menu = () => {
+const Order = () => {
   var [Packages, setPackages] = React.useState([]);
-  
+  const [navigate, setNavigate] = React.useState(false);
+
   React.useEffect(() => {
     const getPackagesData = async () => {
       await getPackages().then((response) => {
@@ -14,6 +16,15 @@ const Menu = () => {
     };
     getPackagesData();
   }, [])
+
+  const handleClick = (user) => () => {
+    localStorage.setItem("package",user._id)
+    setNavigate(true);
+  } 
+  
+  if (navigate) {
+    return <Navigate to="/cart"/>;
+  }
 
   return (
     <div class="container">
@@ -28,15 +39,15 @@ const Menu = () => {
           <div class="col">
             <div class="card" id='cardstyle' >
               <div class="card-body">
-                <h3 class="card-title">{user.Package_Name}</h3>
-                <p class="card-text">
+                <h3 class="card-titl">{user.Package_Name}</h3>
+                <p class="card-tex">
                   $
                   <span id='dollar'> {user.Package_price}</span>
                   <br />monthly
                 </p>
                 <p>{user.Package_desc}</p>
                 <p>{user.Package_deadline}</p>
-                <a href="#" class="btn btn-primary">Buy Now</a>
+                <button  class="btn btn-primary" onClick={handleClick(user)}>Buy Now</button>
               </div>
             </div>
           </div>
@@ -46,4 +57,4 @@ const Menu = () => {
   )
 };
 
-export default Menu;
+export default Order;
