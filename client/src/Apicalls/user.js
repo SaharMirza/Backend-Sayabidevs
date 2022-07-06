@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export async function getservices() {
-   var response = axios.get(`http://localhost:3001/services`)
+export async function getusers(){
+
+   var response = axios.get(`http://localhost:3001/user`)
       .catch(err => {
          console.log(err)
       })

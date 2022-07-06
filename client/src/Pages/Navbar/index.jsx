@@ -3,7 +3,6 @@ import './style.css';
 
 const Navbar = () => {
   const isLogged = localStorage.getItem("isLogged")
-
   const logout = () => {
     localStorage.removeItem("isLogged")
     window.location = "/home";
@@ -20,12 +19,13 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" href="/home">Home</a>
-            <a class="nav-link " href="#careers">Careers</a>
             <a class="nav-link" href="#about">About Us</a>
-            <a class="nav-link " href="#contact">Contact</a>
             <a class="nav-link" href="#service">Services</a>
+            <a class="nav-link " href="#careers">Careers</a>
+            <a class="nav-link " href="#pricing">Pricing</a>
+            <a class="nav-link " href="#contact">ContactUs</a>            
             {isLogged ? (
-              <button class="nav-link" onClick={logout}>Logout</button>
+              <button className="btn btn-danger" onClick={logout}>Logout</button>
             ) :
               (
                 <a class="nav-link" href="/login">Login</a>

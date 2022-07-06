@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-export async function addOrder(pid,sid,totalprice,paymethod,orderdetails) {
-    
+export async function addOrder(pid,sid,totalprice,paymethod,orderdetails) {    
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -22,4 +21,15 @@ export async function addOrder(pid,sid,totalprice,paymethod,orderdetails) {
         });
 
     return response
+}
+
+export async function getOrders() {   
+ 
+    var response = axios.get("http://localhost:3001/orders") 
+    .catch(err => {
+        console.log(err)
+     })
+
+     return response;
+        
 }

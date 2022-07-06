@@ -13,6 +13,7 @@ const Cart = () => {
 
     const sid = localStorage.getItem("service")
     const pid = localStorage.getItem("package")
+    const pname = localStorage.getItem('packagename')
 
     var [Packages, setPackages] = React.useState([]);
     var [Package, setpackage] = React.useState([]);
@@ -60,7 +61,7 @@ const Cart = () => {
     }
 
     const createorder = () => {
-        addOrder(pid, sid, total, pay, orderdetails).then((response) => {
+        addOrder(pname, sid, total, pay, orderdetails).then((response) => {
             if (response.data === undefined) {
                 alert("fill all fields")
             } else {
@@ -72,7 +73,7 @@ const Cart = () => {
     }
 
     const handleClick = (ser) => {
-        localStorage.setItem("service", ser._id)
+        localStorage.setItem("service", ser.Item_Name)
         setservicename(ser.Item_Name)
     }
 

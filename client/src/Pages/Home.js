@@ -21,7 +21,6 @@ const Home = () => {
             <AboutUs/>
             {/* Services */}
             <Services/>
-            {/* Our Skills */}
             {/* Career */}
             <Careers/>
             {/* Meet Our Team */}

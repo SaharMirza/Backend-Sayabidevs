@@ -20,6 +20,7 @@ const Order = () => {
     const isLogged = localStorage.getItem("isLogged")
     if(isLogged){
       localStorage.setItem("package", user._id)
+      localStorage.setItem("packagename", user.Package_Name)
       setNavigate(true);
     }else{
       alert("You need to be logged in")
@@ -31,7 +32,7 @@ const Order = () => {
   }
 
   return (
-    <div class="container">
+    <div class="container" id='pricing'>
       <h2 class="center">
         Pricing<br />
       </h2>
