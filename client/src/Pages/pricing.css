@@ -1,7 +1,7 @@
 .center {
     margin-top: 3%;
     display: block;
-    margin-left: 45%;    
+    margin-left: 45%;
 }
 
 .center1 {
@@ -11,11 +11,39 @@
     text-align: center;
 }
 
-#cardstyle{
-    height: 25em ; 
-    width:20em
+#cardstyle {
+    margin-left: 15%;
+    padding-left: 5%;
+    background-color: rgba(0, 0, 0, 0.575);
+    color: rgb(255, 255, 255);
 }
 
-#dollar{
+#dollar {
     font-size: 35px;
+    font-weight: bold;
 }
+
+.PackageName{
+    margin-top: 5%;
+    font-weight: bolder;
+}
+
+.rupeesign{
+    font-weight:500;
+}
+
+.deadline{
+    font-weight: 600;
+    margin-top: 10%;
+}
+
+#pricingbutton {
+    margin-top: 20%;
+    width: 90%;
+    text-align: center;
+}
+
+.desc{
+    margin-bottom: 15%;
+}
+

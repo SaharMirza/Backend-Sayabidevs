@@ -6,6 +6,8 @@ import { getpackagebyid } from '../Apicalls/packages';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { addOrder } from '../Apicalls/orders'
 import { Navigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Cart = () => {
 
@@ -24,7 +26,7 @@ const Cart = () => {
     React.useEffect(() => {
         const getPackagecat = async () => {
             await getservicecats().then((response) => {
-                console.log(response.data)
+
                 setPackages(response.data.All_ServicesCat)
             })
         };
@@ -34,7 +36,7 @@ const Cart = () => {
     React.useEffect(() => {
         const getservice = async () => {
             await getservices().then((response) => {
-                console.log(response.data)
+
                 setservices(response.data.All_Services)
             })
         };
@@ -45,7 +47,7 @@ const Cart = () => {
         const getpackage = async () => {
 
             await getpackagebyid(pid).then((response) => {
-                console.log(response.data)
+
                 setpackage(response.data.package)
                 settotal(response.data.package.Package_price)
             })
@@ -54,15 +56,19 @@ const Cart = () => {
     }, [])
 
     if (navigate) {
-        return <Navigate to="/home"/>;
-      }
+        return <Navigate to="/home" />;
+    }
 
     const createorder = () => {
         addOrder(pid, sid, total, pay, orderdetails).then((response) => {
-            console.log(response.data)
+            if (response.data === undefined) {
+                alert("fill all fields")
+            } else {
+                alert("Order Confirmed")
+                setNavigate(true);
+            }
         })
-        alert("Order Confirmed")
-        setNavigate(true);
+
     }
 
     const handleClick = (ser) => {
@@ -72,10 +78,13 @@ const Cart = () => {
 
     return (
         <>
+            {/* Navbar */}
+            <Navbar />
             {/* services and service categories */}
+            <p className='serviceselect'>Select Your Service</p>
             <div class="row">
                 {Packages.map((user) => (
-                    <div class="card" style={{ height: 300 }}>
+                    <div class="card" style={{ height: 200 }}>
                         <div class="card-header">
                             {user.Cat_Name}
                         </div>
@@ -107,18 +116,20 @@ const Cart = () => {
             </div>
             {/* Inputs */}
             <div class="mb-3">
-                {/* Order Details */}                
-                <label class="form-label" id="label">Selected Service</label>
-                <textarea disabled type="text" class="form-control" id='detail'
-               value={servicename} 
-                     />
-                <label class="form-label" id="label">Mention Your Order Details</label>
-                <textarea type="text" class="form-control" id='details'
-                   onChange={(event) => {
-                    setorderdetails(event.target.value);
-                }}/>
-                <br />
-                
+                {/* Order Details */}
+                <label class="form-labe" id="cartlabel">Selected Service</label>
+                <br/>
+                <textarea disabled type="text" class="orm-control" id='cartdetail'
+                    value={servicename}
+                />
+                <br/>
+                <label class="form-labe" id="cartlabel">Mention Your Order Details</label>
+                <br/>
+                <textarea type="text" class="form-contrl" id='cartdetails'
+                    onChange={(event) => {
+                        setorderdetails(event.target.value);
+                    }} />
+                <br /><br/>
                 {/* Payment Method */}
                 <Dropdown>
                     <Dropdown.Toggle variant="success">
@@ -134,6 +145,8 @@ const Cart = () => {
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
+            {/* footer */}
+            <Footer />
         </>
     )
 };

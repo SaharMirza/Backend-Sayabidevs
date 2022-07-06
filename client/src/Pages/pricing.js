@@ -10,7 +10,6 @@ const Order = () => {
   React.useEffect(() => {
     const getPackagesData = async () => {
       await getPackages().then((response) => {
-        console.log(response.data)
         setPackages(response.data.All_packages)
       })
     };
@@ -18,12 +17,17 @@ const Order = () => {
   }, [])
 
   const handleClick = (user) => () => {
-    localStorage.setItem("package",user._id)
-    setNavigate(true);
-  } 
-  
+    const isLogged = localStorage.getItem("isLogged")
+    if(isLogged){
+      localStorage.setItem("package", user._id)
+      setNavigate(true);
+    }else{
+      alert("You need to be logged in")
+    }
+  }
+
   if (navigate) {
-    return <Navigate to="/cart"/>;
+    return <Navigate to="/cart" />;
   }
 
   return (
@@ -37,17 +41,17 @@ const Order = () => {
       <div class="row">
         {Packages.map((user) => (
           <div class="col">
-            <div class="card" id='cardstyle' >
-              <div class="card-body">
-                <h3 class="card-titl">{user.Package_Name}</h3>
-                <p class="card-tex">
-                  $
+            <div class="card" style={{width:350}} id="cardstyle" >
+              <div class="card-body" id='pricingcardbody'>
+                <h6 class="PackageName">{user.Package_Name}</h6>
+                <p className='desc'>{user.Package_desc}</p>
+                <p class="rupeesign">
+                  Rs.
                   <span id='dollar'> {user.Package_price}</span>
                   <br />monthly
-                </p>
-                <p>{user.Package_desc}</p>
-                <p>{user.Package_deadline}</p>
-                <button  class="btn btn-primary" onClick={handleClick(user)}>Buy Now</button>
+                </p>                
+                <p className='deadline'> - Project Ready In: {user.Package_deadline}</p>
+                <button id="pricingbutton"class="btn btn-danger" onClick={handleClick(user)}>Buy Now</button>
               </div>
             </div>
           </div>

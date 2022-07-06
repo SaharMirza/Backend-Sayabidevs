@@ -1,5 +1,5 @@
 .navbar-nav {
-    margin-left: 70%;
+    margin-left: 60%;
 }
 
 .navbar {
@@ -25,4 +25,8 @@
     .navbar {
         height: 10%;
     }
+}
+
+#heading{
+    width: 10%;
 }

@@ -1,16 +1,16 @@
-#details {
+#cartdetails {
     width: 68%;
 
 }
 
-#detail {
+#cartdetail {
     width: 15%;
 }
 
 .card {
     width: 20%;
     margin-left: 3%;
-    margin-top: 5%;
+    
 }
 
 .mb-3 {
@@ -41,12 +41,18 @@
     width: 100%;
 }
 
-.form-label {
+#cartlabel {
     font-size: larger;
     font-weight: bold;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 .card-header {
     font-weight: bold;
+}
+.serviceselect{
+    font-size: larger;
+    margin-top: 2%;
+    font-weight: bold;
+    margin-left: 2.5%;
 }

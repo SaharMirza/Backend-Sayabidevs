@@ -26,6 +26,7 @@ const Login = () => {
                 if (data.user.role === 'customer') {
                     alert('Login successful')
                     localStorage.setItem("isLogged","true")
+                    localStorage.setItem("userid",data.user._id)
                     window.location = "/home";
                 }
                 else {
