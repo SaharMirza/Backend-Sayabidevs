@@ -29,9 +29,12 @@ const Login = () => {
                     localStorage.setItem("userid",data.user._id)
                     window.location = "/home";
                 }
-                else {
-                    alert('Please check your username and password')
+                if(data.user.role === 'admin'){
+                    alert('Login successful')
+                    localStorage.setItem("isLoggedadmin","true")
+                    window.location = "/admin";
                 }
+               
             });
 
         } catch (error) {
@@ -43,6 +46,7 @@ const Login = () => {
             ) {
                 setError(error.response.data.message);
                 console.log(error.response)
+                alert('Please check your username and password')
             }
         }
     };

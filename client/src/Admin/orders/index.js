@@ -2,10 +2,11 @@ import React from 'react';
 import './style.css';
 import { getOrders } from '../../Apicalls/orders';
 import { getusers } from '../../Apicalls/user';
+import AdminNavbar from '../AdminNavbar'
 
 
 const AdminOrder = () => {
-    
+
     var [orders, setOrder] = React.useState([]);
     var [users, setusers] = React.useState([]);
 
@@ -27,34 +28,36 @@ const AdminOrder = () => {
         getUser();
     }, [])
 
+
     const username = (id) => {
         for (var item in users) {
-            if(users[item]._id === id ){
-               
+            if (users[item]._id === id) {
+
                 return users[item].username
             }
-        }       
+        }
     }
 
     const useremail = (id) => {
         for (var item in users) {
-            if(users[item]._id === id ){
-                return users[item].email            
+            if (users[item]._id === id) {
+                return users[item].email
             }
-        }       
+        }
     }
 
     const userphone = (id) => {
         for (var item in users) {
-            if(users[item]._id === id ){                
+            if (users[item]._id === id) {
                 return users[item].phoneNumber
-               
+
             }
-        }       
+        }
     }
 
     return (
         <>
+            <AdminNavbar />
             <div class="container-fluid">
                 <h1 class="heading text-center ">ORDERS SUMMARY</h1>
             </div>
@@ -69,7 +72,7 @@ const AdminOrder = () => {
                         <th scope="col">Service Name</th>
                         <th scope="col">Payment Method</th>
                         <th scope="col">Order Details</th>
-                        <th scope="col">Order Status</th>
+                        <th scope="col">Order Status</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -81,14 +84,13 @@ const AdminOrder = () => {
                         <td>{user.Service_ID}</td>
                         <td>{user.Payment_Method}</td>
                         <td>{user.Order_details}</td>
-                        <td>{user.Order_Status}</td>
+                        <td>{user.Order_Status}</td>                        
                     </tr>
                     ))}
 
-
+                   
                 </tbody>
             </table>
-
         </>
     )
 };
