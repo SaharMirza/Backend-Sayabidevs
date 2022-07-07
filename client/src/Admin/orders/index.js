@@ -4,6 +4,7 @@ import { getOrders } from '../../Apicalls/orders';
 import { getusers } from '../../Apicalls/user';
 import AdminNavbar from '../AdminNavbar'
 import Group9 from './Group9.png'
+import Footer from '../../Pages/Footer';
 
 const AdminOrder = () => {
 
@@ -98,6 +99,7 @@ const AdminOrder = () => {
                 </tbody>
             </table>
             <br /> <br /> <br /> 
+            <Footer/>
         </>
     )
 };
