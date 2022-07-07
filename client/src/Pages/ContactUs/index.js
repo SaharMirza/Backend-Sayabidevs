@@ -40,7 +40,7 @@ const ContactUs = () => {
                 <h2 class="text6 " style={{ marginTop: 50 }}>Socials
                 </h2>
                 <h2 class="texts">
-                  <img src="https://t4.ftcdn.net/jpg/02/85/44/69/360_F_285446949_eVkqwuNjPXLwR72oq0ctYltBCIflCbwh.webp" style={{ width: 250 }} />
+                  <img src="https://t4.ftcdn.net/jpg/02/85/44/69/360_F_285446949_eVkqwuNjPXLwR72oq0ctYltBCIflCbwh.webp" style={{ width: 200 }} />
                 </h2>
               </div>
             </div>

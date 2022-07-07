@@ -7,6 +7,8 @@ import Login from './Pages/register';
 import Admin from './Admin/orders';
 
 const App = () => {
+  const adminlog = localStorage.getItem("isLoggedadmin")
+
   return (
     <div className='container'>
       <Router>
@@ -14,8 +16,11 @@ const App = () => {
           <Route path="/login" exact element={<Login />} />
           <Route path="/home" exact element={<Home />} />
           <Route path="/cart" exact element={<Cart />} />
-          <Route path="/Admin" exact element={<Admin />} />
-          
+          {/* <adminlog && Route path="/Admin" exact element={<Admin />} />   */}
+          <Route path="/admin">
+            {adminlog && <Route index element={< Admin />} />}
+            {!adminlog && <Route index element={<Login />} />}
+          </Route>
           <Route path="*" exact element={"404 NOT FOUND"} />
         </Routes>
       </Router>

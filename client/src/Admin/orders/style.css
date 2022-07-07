@@ -1,0 +1,13 @@
+.adminheading{
+    margin-top: 20%;
+    font-family: 'Arima', cursive;
+    font-size: 100px;
+    color: #557BBD;
+}
+
+.ordersummary{
+    font-family: 'Arima', cursive;
+    color: #557BBD;
+    margin-top: 5%;
+    text-align: center;
+}

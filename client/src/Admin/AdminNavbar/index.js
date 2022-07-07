@@ -25,13 +25,13 @@ const AdminNavbar = () => {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav" style={{ marginLeft: 1500 }}>
-
+            <div class="navbar-nav" style={{ marginLeft: 1400 }}>
+            <a class="nav-link active" href="/admin">Home</a>
               {isLogged ? (
                 <button className="btn btn-danger" onClick={logout}>Logout</button>
               ) :
                 (
-                  <button className="btn btn-danger" onClick={login}>Login</button>
+                  <button className="btn btn-danger" onClick={login} style={{marginLeft:40}}>Login</button>
                 )
               }
             </div>

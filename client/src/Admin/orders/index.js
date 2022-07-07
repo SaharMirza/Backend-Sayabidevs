@@ -3,7 +3,7 @@ import './style.css';
 import { getOrders } from '../../Apicalls/orders';
 import { getusers } from '../../Apicalls/user';
 import AdminNavbar from '../AdminNavbar'
-
+import Group9 from './Group9.png'
 
 const AdminOrder = () => {
 
@@ -27,7 +27,6 @@ const AdminOrder = () => {
         };
         getUser();
     }, [])
-
 
     const username = (id) => {
         for (var item in users) {
@@ -58,10 +57,19 @@ const AdminOrder = () => {
     return (
         <>
             <AdminNavbar />
-            <div class="container-fluid">
-                <h1 class="heading text-center ">ORDERS SUMMARY</h1>
+            <br/>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="adminheading">ADMIN DASHBOARD</h1>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <img src={Group9} />
+                    </div>
+                </div>
+                <h1 class="ordersummary ">ORDERS SUMMARY</h1>
             </div>
-            <br />
+            <br />             
             <table class="table">
                 <thead>
                     <tr>
@@ -72,7 +80,7 @@ const AdminOrder = () => {
                         <th scope="col">Service Name</th>
                         <th scope="col">Payment Method</th>
                         <th scope="col">Order Details</th>
-                        <th scope="col">Order Status</th>                        
+                        <th scope="col">Order Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,13 +92,12 @@ const AdminOrder = () => {
                         <td>{user.Service_ID}</td>
                         <td>{user.Payment_Method}</td>
                         <td>{user.Order_details}</td>
-                        <td>{user.Order_Status}</td>                        
+                        <td>{user.Order_Status}</td>
                     </tr>
                     ))}
-
-                   
                 </tbody>
             </table>
+            <br /> <br /> <br /> 
         </>
     )
 };

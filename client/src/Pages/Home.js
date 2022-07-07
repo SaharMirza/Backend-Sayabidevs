@@ -12,6 +12,7 @@ import ContactUs from './ContactUs'
 
 const Home = () => {
     return (
+        <>
         <div>
             {/* Navbar */}
             <Navbar/>
@@ -29,9 +30,11 @@ const Home = () => {
             <Pricing />
             {/* Contact Us */}
             <ContactUs/>
-            {/* footer */}
-            <Footer />
+           
         </div>
+         {/* footer */}
+         <Footer />
+         </>
     )
 };
 

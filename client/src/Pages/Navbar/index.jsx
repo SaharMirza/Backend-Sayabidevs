@@ -6,8 +6,14 @@ const Navbar = () => {
   const logout = () => {
     localStorage.removeItem("isLogged")
     window.location = "/home";
+  }
+
+  const login = () => {
+    window.location = "/login";
 
   }
+
+
   return (
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -25,10 +31,10 @@ const Navbar = () => {
             <a class="nav-link " href="#pricing">Pricing</a>
             <a class="nav-link " href="#contact">ContactUs</a>            
             {isLogged ? (
-              <button className="btn btn-danger" onClick={logout}>Logout</button>
+              <button className="btn btn-danger" onClick={logout} style={{marginLeft:20}}>Logout</button>
             ) :
               (
-                <a class="nav-link" href="/login">Login</a>
+                <button className="btn btn-danger" onClick={login} style={{marginLeft:40}}>Login</button>
               )
             }
           </div>
